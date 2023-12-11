@@ -1,211 +1,216 @@
-��͂́A�u�Ђ܂��f���v
+母艦は、「ひまわり掲示板」
 
-��M�������A�����Ƃ��āA�쐬
-���́A�T�C�Y�́A(0,0,400,300)
+受信メモを、メモとして、作成
+その、レイアウトは、全体
 
-TCP�|�[�g=10000
-TCP�T�[�o�[�N��
-��M���x���ɁATCP�T�[�o�[��M�����ݒ�
+TCPポート=10000
+TCPサーバー起動
+受信ラベルに、TCPサーバー受信処理設定
 
-��͂̃p�X���wdb\post.csv�x���A���݂��邩
-�����A���ꂪ�A�������Ȃ�΁A�i
-	�uAdmin,�Ђ܂��f���ւ悤�����I,�T�[�o�[����,{����},{��}\n�v���A��͂̃p�X���wdb\post.csv�x�ɁA�ۑ�
-�j
+母艦のパス＆『db\post.csv』が、存在するか
+もし、それが、いいえならば、（
+	「Admin,ひまわり掲示板へようこそ！,サーバー内部,{今日},{今}\n」を、母艦のパス＆『db\post.csv』に、保存
+）
 
-��͂̃p�X���wdb\log.txt�x���A���݂��邩
-�����A���ꂪ�A�������Ȃ�΁A�i
-	�u�T�[�o�[�̏���N���B,{����},{��}\n\n�v���A��͂̃p�X���wdb\log.txt�x�ɁA�ۑ�
-�j
+母艦のパス＆『db\log.txt』が、存在するか
+もし、それが、いいえならば、（
+	「サーバーの初回起動。,{今日},{今}\n\n」を、母艦のパス＆『db\log.txt』に、保存
+）
 
-�ҋ@
+待機
 
-����M���x��
-�����G���[�́A������
+＊受信ラベル
+処理エラーは、いいえ
 
-�z�X�g=TCP���M��
-�z�X�g�́A�u,�v�܂ł��A�؂���
-��M�����́A��M����&�z�X�g&�u>�v&TCP������#0&�u\n�v
-
-
-
-TCP������#0���A�u �v�ŁA��؂�
-���N�G�X�g���e�́A����
-
-���N�G�X�g���e#0�ŁA��������
-�uGET�v�̎��A���N�G�X�g���e#1���AGET���[�e�B���O
-�uPOST�v�̎��A�i
-TCP������́A�s��
-����́A����-1
-���N�G�X�g���e#1���ATCP������#����ƁAPOST���[�e�B���O
-�j
-���̑��̎��A����́A404
-
-����ŁA��������
-404�̎��A�z�X�g�ցA�w<html><body>404 Not Found</body></html>�x���A404�ŁA���X�|���X���M
-���̑��̎��A�i
-	�����A�����G���[���A�͂��Ȃ�΁A�z�X�g�ցA������A400�ŁA���X�|���X���M
-	�Ⴆ�΁A�z�X�g�ցA������A200�ŁA���X�|���X���M
-�j
-�z�X�g���ATCP�T�[�o�[����ؒf�B
-�ҋ@
-
-��HTML�ǂݍ���(?��)
-�����擾
-������A�ǂ�
-����́A�����R�[�h��SJIS�ɕϊ��B
-����́A�u�����v���A�u�v�ɁA�u��
-����́A�u	�v���A�u�v�ɁA�u��
-����́A�w"�x���A�u'�v�ɁA�u��
-�߂�
-
-
-��GET���[�e�B���O(?��)
-�����擾
-
-����ŁA��������
-�u/�v�̎��A�i
-	�g�b�v�y�[�W�擾
-    �߂�
-�j
-���̑��̎��A�i
-	����́A404
-    �߂�
-�j
-
-�߂�
-
-��POST���[�e�B���O(?���A?��)
-�����擾
-
-�z�X�g&�u>�v&TCP������&�u\n\n�v���A��͂̃p�X&�wdb\log.txt�x�ցA�ǉ��ۑ��B
-
-���[�g�́A����#0
-����#1���A�u--url-input�v�ŁANKF�ϊ��B
-����́A�u=�v���A�u,�v�ɁA�u��
-������A�u&�v�ŁA��؂�
-���e�́A����
-
-
-���e�ŁA�u,�v�́A�o���񐔁B
-�����A���ꂪ�A3�ȏ�Ȃ�΁A�i
-	����́A�u�g�p�s�ȕ������܂܂�Ă��܂��v
-    �߂�
-�j
-
-// XSS�΍�
-���e�ŁA�u<�v�́A�o���񐔁B
-�����A���ꂪ�A1�ȏ�Ȃ�΁A�i
-	����́A�u�g�p�s�ȕ������܂܂�Ă��܂��v
-    �߂�
-�j
-
-���[�g�ŁA��������
-�u/�v�̎��A�i
-	���e���A���e����
-    �߂�
-�j
-���̑��̎��A�i
-	����́A404
-    �߂�
-�j
-
-�߂�
-
-�����e����(?���j
-�����擾
-
-����́A�w"�x���A�u�v�ɁA�u��
-���e�́A����
-
-���e�́A0��ڂ���A�uname�v���A�\����
-�����A���ꂪ�A0�ȏ�Ȃ�΁A���O�́A���e��1������
-�Ⴆ�΁A�i
-	�u�p�����[�^������܂���v�́A�G���[�y�[�W�擾
-    �߂�
-�j
-���e�́A0��ڂ���A�utext�v���A�\����
-�����A���ꂪ�A0�ȏ�Ȃ�΁A�i
-�{���́A���e��1������
-�{���́A�O��̋󔒍폜�B
-����́A�u\n\n�v���A�u\n�v�ɁA�u��
-�{���́A����
-�j
-�Ⴆ�΁A�i
-	�u�p�����[�^������܂���v�́A�G���[�y�[�W�擾
-    �߂�
-�j
-
-�����A���O���A�u�v�Ȃ�΁A���O�́A�u�ȂȂ��v
-�����A�{�����A�u�v�Ȃ�΁A�i
-	�u�{������͂��Ă��������v�́A�G���[�y�[�W�擾
-    �߂�
-�j
-
-�{���́A������
-�����A���ꂪ�A141�ȏ�Ȃ�΁A�i
-	�u�{����140�����ȓ��Ɏ��߂Ă��������B�v�́A�G���[�y�[�W�擾
-    �߂�
-�j
-���O�́A������
-�����A���ꂪ�A33�ȏ�Ȃ�΁A�i
-	�u���O��32�����ȓ��Ɏ��߂Ă��������B�v�́A�G���[�y�[�W�擾
-    �߂�
-�j
-
-��͂̃p�X���wdb\post.csv�x���A�ǂ�
-����́A�u{���O},{�{��},{�z�X�g},{����},{��}\n�v&����
-������A��͂̃p�X���wdb\post.csv�x�ցA�ۑ�
-
-��͂̃p�X&�whtml\done.html�x���AHTML�ǂݍ���
-
-�߂�
-
-
-���G���[�y�[�W�擾(?��)
-�����擾
-�G���[���e�́A����
-��͂̃p�X&�whtml\err.html�x���AHTML�ǂݍ���
-����́A�w%ERR%�x���A�G���[���e�ɁA�u��
-
-�����G���[�́A�͂�
-�߂�
-
-���g�b�v�y�[�W�擾
-���e�f�[�^�擾
-���e�f�[�^�́A����
-
-��͂̃p�X&�whtml\index.html�x���AHTML�ǂݍ���
-����́A�w%POST%�x���A���e�f�[�^�ɁA�u��
-�߂�
-
-�����e�f�[�^�擾
-HTML�f�[�^=�u�v
-��͂̃p�X���wdb\post.csv�x���A�ǂ�
-����́A�O��̋󔒍폜�B
-���e�ꗗ�f�[�^�́A����
-
-���e�ꗗ�f�[�^�́A�s��
-�\�����́A����
-
-�����A�\�������A51�ȏ�Ȃ�΁A�\�����́A50
-
-���e�ꗗ�f�[�^���A�����i
-	������A�u,�v�ŁA��؂�
-	HTML�f�[�^=HTML�f�[�^���u<li>{����#0}: {����#1}({����#3} {����#4})</li>�v
-�j
-
-����́AHTML�f�[�^
-�߂�
-
-
-�����X�|���X���M(�H�ցA?���A?��)
-�����擾
-�����́A����
-body=����#1
+ホスト=TCP送信元
+ホストの、「,」までを、切り取る
+受信メモは、受信メモ&ホスト&「>」&TCP文字列#0&「\n」
 
 
 
-�uHTTP/1.1 {����#2} OK{���s}Content-Type: text/html; charset=UTF-8{���s}{���s}�obody�p�v�́A�����R�[�h��UTF8�ɕϊ��B
-����#0�ցA������ATCP�T�[�o�[���M
-�߂�
+TCP文字列#0を、「 」で、区切る
+リクエスト内容は、それ
+
+リクエスト内容#0で、条件分岐
+「GET」の時、リクエスト内容#1を、GETルーティング
+「POST」の時、（
+TCP文字列の、行数
+それは、それ-1
+リクエスト内容#1を、TCP文字列#それと、POSTルーティング
+）
+その他の時、それは、404
+
+それで、条件分岐
+404の時、ホストへ、『<html><body>404 Not Found</body></html>』を、404で、レスポンス送信
+その他の時、（
+	もし、処理エラーが、はいならば、ホストへ、それを、400で、レスポンス送信
+	違えば、ホストへ、それを、200で、レスポンス送信
+）
+
+待機
+
+＊HTML読み込み(?を)
+引数取得
+それを、読む
+それの、文字コードをSJISに変換。
+それの、「￥ｎ」を、「」に、置換
+それの、「	」を、「」に、置換
+それの、『"』を、「'」に、置換
+戻る
+
+
+＊GETルーティング(?を)
+引数取得
+
+それで、条件分岐
+「/」の時、（
+	トップページ取得
+    戻る
+）
+その他の時、（
+	それは、404
+    戻る
+）
+
+戻る
+
+＊POSTルーティング(?を、?と)
+引数取得
+
+ホスト&「>」&TCP文字列&「\n\n」を、母艦のパス&『db\log.txt』へ、追加保存。
+
+ルートは、それ#0
+それ#1を、「--url-input」で、NKF変換。
+それの、「=」を、「,」に、置換
+それを、「&」で、区切る
+内容は、それ
+
+
+内容で、「,」の、出現回数。
+もし、それが、3以上ならば、（
+	それは、「使用不可な文字が含まれています」
+    戻る
+）
+
+// XSS対策
+内容で、「<」の、出現回数。
+もし、それが、1以上ならば、（
+	それは、「使用不可な文字が含まれています」
+    戻る
+）
+
+ルートで、条件分岐
+「/」の時、（
+	内容を、投稿処理
+    戻る
+）
+その他の時、（
+	それは、404
+    戻る
+）
+
+戻る
+
+＊投稿処理(?を）
+引数取得
+
+それの、『"』を、「」に、置換
+内容は、それ
+
+内容の、0列目から、「name」を、表検索
+もし、それが、0以上ならば、名前は、内容＃1＃それ
+違えば、（
+	「パラメータが足りません」の、エラーページ取得
+    戻る
+）
+内容の、0列目から、「text」を、表検索
+もし、それが、0以上ならば、（
+本文は、内容＃1＃それ
+本文の、前後の空白削除。
+それの、「\n\n」を、「\n」に、置換
+本文は、それ
+）
+違えば、（
+	「パラメータが足りません」の、エラーページ取得
+    戻る
+）
+
+もし、名前が、「」ならば、名前は、「ななし」
+もし、本文が、「」ならば、（
+	「本文を入力してください」の、エラーページ取得
+    戻る
+）
+
+本文の、文字数
+もし、それが、141以上ならば、（
+	「本文は140文字以内に収めてください。」の、エラーページ取得
+    戻る
+）
+名前の、文字数
+もし、それが、33以上ならば、（
+	「名前は32文字以内に収めてください。」の、エラーページ取得
+    戻る
+）
+
+母艦のパス＆『db\post.csv』を、読む
+それは、「{名前},{本文},{ホスト},{今日},{今}\n」&それ
+それを、母艦のパス＆『db\post.csv』へ、保存
+
+母艦のパス&『html\done.html』を、HTML読み込み
+
+戻る
+
+
+＊エラーページ取得(?の)
+引数取得
+エラー内容は、それ
+母艦のパス&『html\err.html』を、HTML読み込み
+それの、『%ERR%』を、エラー内容に、置換
+
+処理エラーは、はい
+戻る
+
+＊トップページ取得
+投稿データ取得
+投稿データは、それ
+
+母艦のパス&『html\index.html』を、HTML読み込み
+それの、『%POST%』を、投稿データに、置換
+戻る
+
+＊投稿データ取得
+HTMLデータ=「」
+母艦のパス＆『db\post.csv』を、読む
+それの、前後の空白削除。
+投稿一覧データは、それ
+
+投稿一覧データの、行数
+表示数は、それ
+
+もし、表示数が、51以上ならば、表示数は、50
+
+投稿一覧データを、反復（
+	それを、「,」で、区切る
+	HTMLデータ=HTMLデータ＆「<li>{それ#0}: {それ#1}({それ#3} {それ#4})</li>」
+）
+
+それは、HTMLデータ
+戻る
+
+
+＊レスポンス送信(？へ、?を、?で)
+引数取得
+引数は、それ
+body=引数#1
+
+
+
+
+引数#0へ、「HTTP/1.1 200 OK
+Content-Type: text/html; charset=Shift-JIS
+Connection: keep-alive
+Server: Himawari{改行}{改行}｛body｝」を、TCPサーバー送信
+
+ホストを、TCPサーバーから切断。
+戻る
 
